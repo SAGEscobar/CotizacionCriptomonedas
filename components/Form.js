@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, TouchableHighlight, StyleSheet, Alert } from 'react-native'
 import { Picker } from '@react-native-community/picker'
 import axios from 'axios';
-const Form = () => {
-  const [coin, setCoin] = useState('');
-  const [criptocoin, setCriptocoin] = useState('');
-  const [criptocoins, setCriptocoins] = useState([])
+const Form = ({coin, criptocoin, setCoin, setCriptocoin, setFetch}) => {
+  const [criptocoins, setCriptocoins] = useState([]);
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -35,7 +33,9 @@ const Form = () => {
       )
       return;
     }
-    
+
+    setFetch(true)
+
   }
 
   return (
